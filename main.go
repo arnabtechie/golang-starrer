@@ -20,7 +20,7 @@ func main() {
 
 	defer database.CloseDB()
 
-	gin.SetMode(gin.ReleaseMode)
+	gin.SetMode(gin.DebugMode)
 	r := gin.Default()
 
 	r.Use(gin.Logger())

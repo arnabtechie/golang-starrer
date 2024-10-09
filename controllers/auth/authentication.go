@@ -1,6 +1,10 @@
 package auth
 
-import "errors"
+import (
+	"errors"
+
+	"github.com/google/uuid"
+)
 
 func Register(data User) (RegResp, error) {
 	if data.Password != data.ConfirmPassword {
@@ -8,7 +12,7 @@ func Register(data User) (RegResp, error) {
 	}
 
 	return RegResp{
-		ID:    "jweenfjw",
+		ID:    uuid.New().String(),
 		Email: data.Email,
 		Token: "jasncjsn",
 	}, nil
