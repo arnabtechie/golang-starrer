@@ -1,6 +1,6 @@
 # Go/Gin PostgreSQL Starter Application
 
-This is a starter application built with Go (1.20+), the Gin web framework, and PostgreSQL. This project serves as a template for building RESTful APIs with a focus on best practices.
+This is a starter application built with Go, the Gin web framework, and PostgreSQL. This project serves as a template for building RESTful APIs with a focus on best practices.
 
 ## Table of Contents
 
