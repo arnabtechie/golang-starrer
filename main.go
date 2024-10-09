@@ -6,6 +6,7 @@ import (
 	"os"
 
 	"github.com/arnabtechie/golang-starrer/database"
+	"github.com/arnabtechie/golang-starrer/routes"
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
@@ -43,6 +44,8 @@ func main() {
 			"message": "alive",
 		})
 	})
+
+	routes.SetupRoutes(r)
 
 	r.NoRoute(func(c *gin.Context) {
 		c.JSON(http.StatusNotFound, gin.H{

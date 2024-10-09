@@ -7,20 +7,25 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func RegisterRoute(c *gin.Context) {
-	var data auth.User
+func SetupRoutes(r *gin.Engine) {
+	api := r.Group("/api")
 
-	if err := c.ShouldBindJSON(&data); err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
-		return
-	}
+	user := api.Group("/user")
 
-	response, err := auth.Register(data)
+	user.POST("/register", func(c *gin.Context) {
+		var data auth.User
 
-	if err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
-		return
-	}
+		if err := c.ShouldBindJSON(&data); err != nil {
+			c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+			return
+		}
 
-	c.JSON(http.StatusOK, gin.H{"message": "User registered successfully", "data": response})
+		response, err := auth.Register(data)
+		if err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+			return
+		}
+
+		c.JSON(http.StatusOK, gin.H{"message": "User registered successfully", "data": response})
+	})
 }
