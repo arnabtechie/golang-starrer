@@ -6,7 +6,7 @@ This is a starter application built with Go (1.20+), the Gin web framework, and 
 
 - [Prerequisites](#prerequisites)
 - [Project Structure](#project-structure)
-- [Installation](#installation)
+- [Installation & Usage](#installation)
 - [License](#license)
 
 ## Prerequisites
@@ -21,10 +21,18 @@ Make sure you have the following installed on your machine:
 Change the .env file on your requirements
 
 
-## Installation
+## Installation & Usage
 
 1. Clone this repository:
    ```bash
    git clone https://github.com/arnabtechie/golang-starrer.git
    cd golang-starrer
    go mod tidy
+   go run main.go
+2. For building
+    ```bash
+    go build
+3. Use air for auto detection of file changes
+    ```bash
+    go install github.com/cosmtrek/air@latest
+    air
